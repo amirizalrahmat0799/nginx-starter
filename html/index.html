@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{DOMAIN}}</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #f7f7f5; --fg: #1d1d1b; --muted: #6b6b66; --accent: #0f7b5f; }
+    @media (prefers-color-scheme: dark) { :root { --bg: #141413; --fg: #ececea; --muted: #9a9a94; --accent: #3fbf96; } }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 16px;
+           background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, sans-serif; }
+    main { max-width: 560px; }
+    h1 { margin: 0 0 8px; font-size: clamp(1.8rem, 6vw, 2.6rem); }
+    .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-right: 8px; }
+    p { color: var(--muted); }
+    code { background: color-mix(in srgb, var(--fg) 8%, transparent); padding: 2px 6px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <main>
+    <p><span class="dot"></span>Served by Nginx</p>
+    <h1>{{DOMAIN}}</h1>
+    <p>It works. Replace this page by editing <code>/var/www/{{DOMAIN}}/index.html</code>,
+       or switch <code>MODE=proxy</code> in <code>site.env</code> to put an app behind this domain.</p>
+  </main>
+</body>
+</html>

@@ -1,0 +1,16 @@
+# What the site does in MODE=proxy: forward every request to your app.
+# (Rendered by scripts/setup.sh; ${...} values come from site.env.)
+
+# Largest upload Nginx will accept (default is only 1m).
+client_max_body_size 10m;
+
+location / {
+    proxy_pass ${UPSTREAM};
+    include snippets/starter/proxy.conf;
+}
+
+# Route by path to more apps by adding blocks like this (more specific paths win):
+# location /api/ {
+#     proxy_pass http://127.0.0.1:8081;
+#     include snippets/starter/proxy.conf;
+# }

@@ -1,0 +1,11 @@
+# your real settings (copy from site.env.example)
+site.env
+
+# never commit certificates or keys
+*.key
+*.crt
+*.pem
+
+.idea/
+.vscode/
+*.iml
