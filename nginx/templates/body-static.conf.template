@@ -1,0 +1,22 @@
+# What the site does in MODE=static: serve files from a folder.
+# (Rendered by scripts/setup.sh; ${...} values come from site.env.)
+
+root  ${SITE_ROOT};
+index index.html;
+
+location / {
+    # Try the exact file, then a folder with index.html, else 404.
+    # For a React/Vue single-page app, change =404 to /index.html
+    try_files $uri $uri/ =404;
+}
+
+# Cache images, CSS and JS in the browser for 7 days.
+location ~* \.(?:css|js|png|jpg|jpeg|gif|svg|ico|webp|woff2?)$ {
+    expires 7d;
+    access_log off;
+}
+
+# Never serve hidden files such as .git or .env
+location ~ /\. {
+    deny all;
+}
